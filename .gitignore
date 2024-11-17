@@ -1,0 +1,6 @@
+venv
+*.png
+
+__pycache__/
+
+Pipfile.lock
