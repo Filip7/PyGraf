@@ -36,4 +36,5 @@ TODO:
 
 ## Showcase
 
-![screenshot of PyGraf program](./img/Screenshot_20241117_161827.png)
+![screenshot of PyGraf program](./img/example.png)
+![generated graph from application](./img/example-graph.png)

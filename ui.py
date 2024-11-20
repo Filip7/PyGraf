@@ -29,10 +29,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Fill table width
         total_width = self.tableWidget.width()
-        second_col_width = total_width // 3
-        first_col_width = total_width - second_col_width
-        self.tableWidget.setColumnWidth(0, first_col_width)
-        self.tableWidget.setColumnWidth(1, second_col_width)
+        print(total_width)
+        self.tableWidget.setColumnWidth(0, 350)
+        self.tableWidget.setColumnWidth(1, 154)
 
     def add_row(self):
         self.tableWidget.insertRow(self.tableWidget.rowCount())
