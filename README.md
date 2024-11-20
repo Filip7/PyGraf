@@ -31,6 +31,7 @@ TODO:
 - [ ] Better graph customizations
 - [ ] Color picker
 - [ ] Responsive UI
+- [ ] Add sqlite for storing used colors and settings
 - [ ] World graph domination?
 
 ## Showcase

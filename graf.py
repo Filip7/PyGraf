@@ -47,6 +47,8 @@ class Graf:
                 fontsize=14,
             )
 
+        plt.box(False)
+
     def show_graph(self):
         self.draw_graph()
         plt.show()
