@@ -17,6 +17,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.show_btn.clicked.connect(self.show_graph)
         self.save_file_btn.clicked.connect(self.save_as)
         self.save_file_tight_btn.clicked.connect(self.save_as_tight)
+        self.picker_btn.clicked.connect(self.show_color_picker)
 
         # Set default button value to excape errors
         self.color_edit.setText("#000000")
@@ -28,9 +29,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.actionAbout_Qt.triggered.connect(self.about_qt)
 
         # Fill table width
-        total_width = self.tableWidget.width()
-        print(total_width)
-        self.tableWidget.setColumnWidth(0, 350)
+        self.tableWidget.setColumnWidth(0, 353)
         self.tableWidget.setColumnWidth(1, 154)
 
     def add_row(self):
@@ -102,3 +101,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def show_graph(self):
         self.generate_graph()
         self.graf.show_graph()
+
+    def show_color_picker(self):
+        color = QtWidgets.QColorDialog.getColor()
+        self.color_edit.setText(color.name())

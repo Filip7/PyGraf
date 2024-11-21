@@ -29,7 +29,7 @@ TODO:
 
 - [ ] Error handling - for example, if you set wrong image format, program ends
 - [ ] Better graph customizations
-- [ ] Color picker
+- [x] Color picker
 - [ ] Responsive UI
 - [ ] Add sqlite for storing used colors and settings
 - [ ] World graph domination?
