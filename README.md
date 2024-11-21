@@ -30,9 +30,9 @@ TODO:
 - [ ] Error handling - for example, if you set wrong image format, program ends
 - [ ] Better graph customizations
 - [x] Color picker
-- [ ] Responsive UI
+- [ ] Responsive UI - this would require rewrite with QML or using FlexLayout
 - [ ] Add sqlite for storing used colors and settings
-- [ ] World graph domination?
+- [x] World graph domination?
 
 ## Showcase
 

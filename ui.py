@@ -20,7 +20,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.picker_btn.clicked.connect(self.show_color_picker)
 
         # Set default button value to excape errors
-        self.color_edit.setText("#000000")
+        initial_color = "#000000"
+        self.color_edit.setText(initial_color)
+        self.color_edit.setStyleSheet(f"background-color: {initial_color}")
 
         # Menu item actions
         self.actionSave_as.triggered.connect(self.save_as)
@@ -104,4 +106,19 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def show_color_picker(self):
         color = QtWidgets.QColorDialog.getColor()
+        rgb = color.getRgb()
+        dark = isDark(rgb)
         self.color_edit.setText(color.name())
+        self.color_edit.setStyleSheet(
+            f"background-color: {color.name()}; color:  {"white" if dark else "black"}"
+        )
+
+
+# Algorithm from:
+# https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
+def isDark(rgb) -> bool:
+    r = rgb[0]
+    g = rgb[1]
+    b = rgb[2]
+
+    return ((r * 0.299) + (g * 0.587) + (b * 0.114)) <= 186
