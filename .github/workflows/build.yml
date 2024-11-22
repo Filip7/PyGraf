@@ -15,6 +15,7 @@ jobs:
 
       - name: Setup env
         run: |
+          python -m venv venv/
           make setup-env
           make setup-install
 
