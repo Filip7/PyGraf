@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 setup-env:
-	source venv/bin/activate
+	pipenv shell
 
 setup-install:
 	pipenv install

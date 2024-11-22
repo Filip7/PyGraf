@@ -15,9 +15,9 @@ jobs:
 
       - name: Setup env and build
         run: |
+          pip install pipenv
           python -m venv venv/
           make setup-env
-          pip install pipenv
           make setup-install
           make build
 
