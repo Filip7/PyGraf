@@ -13,15 +13,13 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Setup env
+      - name: Setup env and build
         run: |
           python -m venv venv/
           make setup-env
           pip install pipenv
           make setup-install
-
-      - name: Produce installation
-        run: make build
+          make build
 
       - name: Create artifact
         uses: actions/upload-artifact@v4
