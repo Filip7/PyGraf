@@ -13,7 +13,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.db = db
 
         # Load the UI Page
-        uic.loadUi("mainwindow.ui", self)
+        uic.loadUi("pygraf/mainwindow.ui", self)
 
         # Set button actions
         self.add_row_btn.clicked.connect(self.add_row)

@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 matplotlib = "*"
 pyqt6 = "*"
+pyinstaller = "*"
 
 [dev-packages]
 
