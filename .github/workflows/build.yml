@@ -17,6 +17,7 @@ jobs:
         run: |
           python -m venv venv/
           make setup-env
+          pip install pipenv
           make setup-install
 
       - name: Produce installation
