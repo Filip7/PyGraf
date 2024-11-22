@@ -10,4 +10,7 @@ run:
 	python pygraf/main.py
 
 build:
-	pyinstaller -F pygraf/main.py -p pygraf
+	pyinstaller -F -p pygraf -n pygraf pygraf/main.py
+
+clean:
+	rm -rf build/ dist/

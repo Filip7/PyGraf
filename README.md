@@ -31,6 +31,8 @@ TODO:
 - [ ] Better graph customizations
 - [ ] Responsive UI - this would require rewrite with QML or using FlexLayout
 - [ ] Use logging instead of print
+- [ ] Build flatpak
+- [ ] Try using [graalpython](https://github.com/oracle/graalpython)
 - [x] Color picker
 - [x] Add sqlite for storing used colors and settings
 - [x] World graph domination?

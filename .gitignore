@@ -7,7 +7,7 @@ Pipfile.lock
 
 pygraf.db
 
-main.spec
+pygraf.spec
 
 build/
 dist/

@@ -1,0 +1,29 @@
+name: Build pygraf linux executable
+
+on: push
+
+jobs:
+  build-linux-executable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup env
+        run: |
+          make setup-env
+          make setup-install
+
+      - name: Produce installation
+        run: make build
+
+      - name: Create artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pygraf
+          path: dist/pygraf
+          retention-days: 1
