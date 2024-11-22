@@ -31,7 +31,7 @@ TODO:
 - [ ] Better graph customizations
 - [x] Color picker
 - [ ] Responsive UI - this would require rewrite with QML or using FlexLayout
-- [ ] Add sqlite for storing used colors and settings
+- [x] Add sqlite for storing used colors and settings
 - [x] World graph domination?
 
 ## Showcase

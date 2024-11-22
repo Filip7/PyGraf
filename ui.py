@@ -1,12 +1,16 @@
-from PyQt6 import QtWidgets, uic
+from PyQt6 import QtGui, QtWidgets, uic
+from numpy import sqrt
+from db_3 import Db
 from graf import Graf
 
 
 class MainWindow(QtWidgets.QMainWindow):
     graf = Graf()
+    db: Db
 
-    def __init__(self, app, *args, **kwargs):
+    def __init__(self, app: QtWidgets.QApplication, db: Db, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.db = db
 
         # Load the UI Page
         uic.loadUi("mainwindow.ui", self)
@@ -23,6 +27,7 @@ class MainWindow(QtWidgets.QMainWindow):
         initial_color = "#000000"
         self.color_edit.setText(initial_color)
         self.color_edit.setStyleSheet(f"background-color: {initial_color}")
+        self.color_edit.textChanged.connect(self.on_color_change)
 
         # Menu item actions
         self.actionSave_as.triggered.connect(self.save_as)
@@ -105,13 +110,25 @@ class MainWindow(QtWidgets.QMainWindow):
         self.graf.show_graph()
 
     def show_color_picker(self):
-        color = QtWidgets.QColorDialog.getColor()
-        rgb = color.getRgb()
-        dark = isDark(rgb)
+        color_list = self.db.get_all_colors()
+        color_widget = QtWidgets.QColorDialog
+        for idx, color in enumerate(color_list):
+            color_widget.setCustomColor(idx, QtGui.QColor(color[1]))
+
+        # Select color
+        color = color_widget.getColor()
+
+        # Insert selected color to db and set colors to labels
+        self.db.insert_color(color.name())
         self.color_edit.setText(color.name())
-        self.color_edit.setStyleSheet(
-            f"background-color: {color.name()}; color:  {"white" if dark else "black"}"
-        )
+
+    def on_color_change(self):
+        if len(self.color_edit.text()) == 7:
+            rgb = QtGui.QColor(self.color_edit.text())
+            dark = isDark(rgb.getRgb())
+            self.color_edit.setStyleSheet(
+                f"background-color: {rgb.name()}; color:  {"white" if dark else "black"}"
+            )
 
 
 # Algorithm from:
@@ -121,4 +138,4 @@ def isDark(rgb) -> bool:
     g = rgb[1]
     b = rgb[2]
 
-    return ((r * 0.299) + (g * 0.587) + (b * 0.114)) <= 186
+    return (r * 0.299 + g * 0.587 + b * 0.114) < 149
