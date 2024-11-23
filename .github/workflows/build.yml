@@ -16,6 +16,8 @@ jobs:
 
       - name: Setup env and build
         run: |
+          make setup-install
+          make setup-env
           make build
 
       - name: Upload artifact
