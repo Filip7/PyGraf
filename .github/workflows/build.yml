@@ -18,8 +18,7 @@ jobs:
         run: |
           pip install pipenv
           make setup-install
-          make setup-env
-          make build
+          pipenv run pyinstaller -F -p pygraf -n pygraf pygraf/main.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
