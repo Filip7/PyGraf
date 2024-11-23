@@ -12,18 +12,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: "pipenv"
 
       - name: Setup env and build
         run: |
-          pip install pipenv
-          python -m venv venv/
-          make setup-env
-          make setup-install
+          pip install
           make build
 
-      - name: Create artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: pygraf
-          path: dist/pygraf
+          path: ./dist/pygraf
           retention-days: 1

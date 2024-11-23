@@ -14,3 +14,6 @@ build:
 
 clean:
 	rm -rf build/ dist/
+
+help:
+	@printf "Usage:\nmake setup-env     -> setup the pipenv shell\nmake setup-install -> install dependencies\nmake run           -> start application\nmake build         -> produce executable\nmake help          -> show this help\n"
