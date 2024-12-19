@@ -23,7 +23,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.save_file_tight_btn.clicked.connect(self.save_as_tight)
         self.picker_btn.clicked.connect(self.show_color_picker)
 
-        # Set default button value to excape errors
+        # Set default button value to escape errors
         initial_color = "#000000"
         self.color_edit.setText(initial_color)
         self.color_edit.setStyleSheet(f"background-color: {initial_color}")

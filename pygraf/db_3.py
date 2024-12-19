@@ -1,8 +1,5 @@
-from genericpath import isfile
 import os
 import sqlite3
-
-from numpy import int32
 
 
 class Db:
