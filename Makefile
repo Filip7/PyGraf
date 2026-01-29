@@ -1,10 +1,10 @@
 SHELL := /bin/bash
 
 setup-env:
-	pipenv shell
+	uv venv
 
 setup-install:
-	pipenv install
+	uv pip install -r requirements.txt
 
 run:
 	python pygraf/main.py
@@ -16,4 +16,4 @@ clean:
 	rm -rf build/ dist/
 
 help:
-	@printf "Usage:\nmake setup-env     -> setup the pipenv shell\nmake setup-install -> install dependencies\nmake run           -> start application\nmake build         -> produce executable\nmake help          -> show this help\n"
+	@printf "Usage:\nmake setup-env     -> setup the uv virtual environment\nmake setup-install -> install dependencies using uv\nmake run           -> start application\nmake build         -> produce executable\nmake help          -> show this help\n"

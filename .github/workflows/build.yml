@@ -11,14 +11,14 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-          cache: "pipenv"
+          python-version: "3.13"
+          cache: "uv"
 
       - name: Setup env and build
         run: |
-          pip install pipenv
+          pip install uv
           make setup-install
-          pipenv run pyinstaller -F -p pygraf -n pygraf pygraf/main.py
+          pyinstaller -F -p pygraf -n pygraf pygraf/main.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

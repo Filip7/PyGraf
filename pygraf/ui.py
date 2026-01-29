@@ -127,7 +127,7 @@ class MainWindow(QtWidgets.QMainWindow):
             rgb = QtGui.QColor(self.color_edit.text())
             dark = isDark(rgb.getRgb())
             self.color_edit.setStyleSheet(
-                f"background-color: {rgb.name()}; color:  {"white" if dark else "black"}"
+                f"background-color: {rgb.name()}; color:  {'white' if dark else 'black'}"
             )
 
 
