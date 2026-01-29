@@ -4,7 +4,7 @@ setup-env:
 	uv venv
 
 setup-install:
-	uv pip install -r requirements.txt
+	uv sync
 
 run:
 	python pygraf/main.py
