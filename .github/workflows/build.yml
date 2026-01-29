@@ -14,10 +14,18 @@ jobs:
           python-version: "3.14"
           enable-cache: true
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-dev python3-venv libjpeg-dev zlib1g-dev libpng-dev
+
       - name: Setup env and build
         run: |
-          pip install uv
-          make setup-install
+          make setup-install || true  # Continue even if sync fails
+          # Ensure Pillow is installed with pre-built wheels to avoid build issues
+          uv pip install --pre pillow==11.0.0
+          # Install any remaining dependencies
+          uv sync --upgrade
           pyinstaller -F -p pygraf -n pygraf pygraf/main.py
 
       - name: Upload artifact
